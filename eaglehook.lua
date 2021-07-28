@@ -1119,6 +1119,7 @@ end
 callbacks.Register("FireGameEvent", FireGameEvent)
 callbacks.Register("Draw", Draw)
 callbacks.Register("CreateMove", CreateMove)
+client.AllowListener("player_death")
 
 -- lua by https://aimware.net/forum/user/63613
 -- why mixing good coding practices w/ shit ones hard coding values then not hard coding ??
