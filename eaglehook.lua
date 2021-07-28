@@ -207,7 +207,7 @@ inverter_key = gui.Keybox(gui.Reference("Settings","EagleHook","Misc"), "inverte
 -- Misc end
 	
 -- Custom jitter start
-gui.Groupbox(eaglehook_gui, 'Custom Jitter', 420, 490, 180)
+gui.Groupbox(eaglehook_gui, 'Custom Jitter', 420, 460, 180)
 custom_jitter_cb = gui.Combobox(gui.Reference("Settings","EagleHook","Custom Jitter"),"custom_jitter_cb","Jitter style", "Off", "Switch", "Cycle");
 custom_jitter_slider_a = gui.Slider(gui.Reference("Settings","EagleHook","Custom Jitter"),"custom_jitter_slider_a", "Rotation start", 0, -58, 58);
 custom_jitter_slider_b = gui.Slider(gui.Reference("Settings","EagleHook","Custom Jitter"),"custom_jitter_slider_b", "Rotation end", 0, -58, 58);
