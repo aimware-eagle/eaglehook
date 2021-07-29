@@ -3,6 +3,25 @@ this lua is by eagle, made for aimware.
 I hope no competent developer has to read this source
 
 a shit load of stuff in this source could be heavily optimized code wise
+
+Lua Information - 
+
+Activate EagleHook at [Settings->EagleHook]
+
+AutoUpdating is removed and commented out because I don't care if you guys want to use an older version or not
+
+NOTE:
+
+• Certain people will crash / just put on auto run on the lua, and when you inject it won't crash. (this only seems to happen with people with older hardware)
+• Don't bother adding suggestions because I'll never add what you ask - I just did this for me & shameless its just features I wanted to use while hvhing with aimware without having to load a million other luas that do the same shit
+• Don't uncomment the auto updating if you don't want the script to be obfuscated
+• Uncommenting the user_check and user_type will crash your game
+• credits - 
+eagle
+stacky - better createinterface
+imi-tat0r - animated clantag shit i ported
+user3166950 - stackoverflow basic rgb shit lol
+ruppert - drag feature
 --]]
 
 --[[
