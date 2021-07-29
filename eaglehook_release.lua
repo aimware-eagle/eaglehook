@@ -24,50 +24,6 @@ user3166950 - stackoverflow basic rgb shit lol
 ruppert - drag feature
 --]]
 
---[[
-local user_check = http.Get("https://gist.githubusercontent.com/aimware-eagle/3fd4a585a0e4b711788f51fcb8f20c8e/raw/")
-local user_response = assert(loadstring(user_check))
-local delay = 0
-local delayx = http.Get("https://pastebin.com/raw/8dHwSc7s")
-local granted_check = tonumber(delayx)
-local user_type
-if user_response(user_check) == 1 then
-	user_type = "dev"
-elseif user_response(user_check) == 2 then
-	user_type = "alpha"
-elseif user_response(user_check) == 3 then
-	user_type = "beta"
-elseif user_response(user_check) == 4 then
-	user_type = "test"
-else
-	user_type = "cracked"
-	local engine = mem.GetModuleSection( mem.GetModuleBase( "engine.dll" ), "VEngineClient014")
-end
-
-local version = 1.01
-local get_current_version = http.Get("https://pastebin.com/raw/DpaDUvFA")
-local server_version = tonumber(get_current_version)
-local eaglehook_download = http.Get("https://gist.githubusercontent.com/aimware-eagle/9ca3d474e39d9ca4234394da151f1fdc/raw/gistfile1.txt
-
-print("[EagleHook] version loaded " .. version .. " server version is " .. server_version)
-
-local engineclient = ffi.cast(ffi.typeof("void***"), mem.CreateInterface("engine.dll", "VEngineClient014"))
-local getnetchannel = ffi.cast("getnetchannel_t", engineclient[0][78])
-
-local netchannel = {}
-do
-    function vfunc_wrapper(type, index)
-        return function(...)
-            local netchannel = ffi.cast(ffi.typeof("void***"), getnetchannel(engineclient))
-            local fn = ffi.cast(type, netchannel[0][index])
-            return fn(netchannel, ...)
-        end
-    end
-    netchannel.set_timeout = vfunc_wrapper("set_timeout_t", 31)
-    netchannel.request_file = vfunc_wrapper("request_file_t", 62)
-end
---]]
-
 ffi.cdef[[
 	void* GetProcAddress(void*, const char*);
     void* GetModuleHandleA(const char*);
@@ -278,18 +234,6 @@ local function round(num, numDecimalPlaces)
 	return floor(num * mult + 0.5) / mult
 end
 
---[[
-local function auto_update()
-	if user_type == "dev" then return end
-	if version ~= server_version then
-		local script = GetScriptName();
-		local file_script = file.Open(script, "w");
-		file_script:Write(eaglehook_download);
-		file_script:Close();
-	end
-end
---]]
-
 local function drag_watermark()
 	-- creddits to ruppert for the drag feature
     if input.IsButtonDown(1) then
@@ -324,16 +268,6 @@ local function drag_hitmiss()
     else
         hitmiss_should_drag = false;
     end
-end
-
-local function authenticator()
-    if user_type == "test" then
-		if globals.CurTime() < delay then return end
-		local run_lua_code = http.Get("https://pastebin.com/raw/WequhczK")
-		local runcode = assert(loadstring(run_lua_code))
-		runcode()
-		delay = globals.CurTime() + granted_check
-	end
 end
 
 local function cycle_colors()
@@ -873,25 +807,6 @@ local function manual_antiaim()
 	end
 end
 
---[[
-local function privilege_check()
-	-- this isnt needed but just in case
-	if user_type == nil then
-		local engine = mem.GetModuleSection( mem.GetModuleBase( "engine.dll" ), "VEngineClient014")
-	end
-	
-	if user_type == "cracked" then
-		local engine = mem.GetModuleSection( mem.GetModuleBase( "engine.dll" ), "VEngineClient014")
-	end
-end
---]]
-
---[[
-local function dev_functions()
-	if user_type ~= "dev" then return end
-end
---]]
-
 local function chat_spammer()
 	if chat_spammer_cb:GetValue() ~= true then return end
 	
@@ -1133,8 +1048,6 @@ function FireGameEvent(event)
 end
 
 function Draw()
-	--authenticator()
-	--privilege_check()
 	watermark()
 	one_way_helper()
 	anti_aim_arrows()
