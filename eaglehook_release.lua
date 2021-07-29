@@ -15,7 +15,6 @@ NOTE:
 • Certain people will crash / just put on auto run on the lua, and when you inject it won't crash. (this only seems to happen with people with older hardware)
 • Don't bother adding suggestions because I'll never add what you ask - I just did this for me & shameless its just features I wanted to use while hvhing with aimware without having to load a million other luas that do the same shit
 • Don't uncomment the auto updating if you don't want the script to be obfuscated
-• Uncommenting the user_check and user_type will crash your game
 • credits - 
 eagle
 stacky - better createinterface
@@ -214,20 +213,6 @@ left_antiaim = gui.Keybox(gui.Reference("Settings","EagleHook","Manual Anti-Aim"
 right_antiaim = gui.Keybox(gui.Reference("Settings","EagleHook","Manual Anti-Aim"), "right_antiaim", "Right Anti-Aim", 39);
 backwards_antiaim = gui.Keybox(gui.Reference("Settings","EagleHook","Manual Anti-Aim"), "backwards_antiaim", "Backwards Anti-Aim", 40);
 -- Manual anti aim end
-
---[[
-
-if user_type == "dev" then
-	eaglehook_gui_dev = gui.Tab(gui.Reference('Settings'), 'eaglehook_dev', 'EagleHook [DEV]')
-	gui.Groupbox(eaglehook_gui_dev, 'DEV Functions', 16, 16, 180)
-end
-
-if user_type == "dev" or user_type == "alpha" then
-	eaglehook_gui_alpha = gui.Tab(gui.Reference('Settings'), 'eaglehook', 'EagleHook [ALPHA]')
-	gui.Groupbox(eaglehook_gui_alpha, 'Alpha Functions', 16, 16, 180)
-end
-
---]]
 
 local function round(num, numDecimalPlaces)
 	local mult = 10 ^ (numDecimalPlaces or 0)
