@@ -1,4 +1,11 @@
 --[[
+this lua is by eagle, made for aimware.
+I hope no competent developer has to read this source
+
+a shit load of stuff in this source could be heavily optimized code wise
+--]]
+
+--[[
 local user_check = http.Get("https://gist.githubusercontent.com/aimware-eagle/3fd4a585a0e4b711788f51fcb8f20c8e/raw/")
 local user_response = assert(loadstring(user_check))
 local delay = 0
